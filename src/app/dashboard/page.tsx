@@ -8,7 +8,6 @@ import Image from "next/image";
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
-
   const router = useRouter();
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -17,6 +16,7 @@ const Dashboard = () => {
     `/api/posts?username=${session?.user?.name}`,
     fetcher
   );
+  console.log(session);
   console.log(data);
 
   if (status === "loading") {
